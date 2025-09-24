@@ -7,11 +7,12 @@ from config import Config
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_session import Session
+from flask.logging import create_logger
 
 app = Flask(__name__)
 app.config.from_object(Config)
-# Configuración de logging para App Service / Log Stream
-# Nivel INFO para ver tanto éxitos como fallos (warning/error)
+# TODO: Add any logging levels and handlers with app.logger
+# DONE (Note: Instructor's original app.logger code not pylint compliant)
 LOG = create_logger(app)
 LOG.setLevel(logging.INFO)
 streamHandler = logging.StreamHandler()
